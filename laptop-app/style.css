@@ -1,0 +1,88 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+.container {
+    background: #161b22;
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6); /* ✅ اصلاح */
+}
+h1 { text-align: center; color: #58a6ff; margin-bottom: 20px; }
+.toolbar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.toolbar input {
+    flex: 1;
+    padding: 10px 16px;
+    background: #0d1117;
+    color: #fff;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    font-size: 16px;
+    min-width: 150px;
+    direction: ltr;
+}
+.toolbar button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+#connectBtn { background: #238636; color: #fff; }
+#disconnectBtn { background: #da3633; color: #fff; }
+.toolbar button:hover { opacity: 0.8; }
+#status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    background: #0d1117;
+    border: 1px solid #30363d;
+}
+.online { color: #2ecc71; }
+.offline { color: #e74c3c; }
+.waiting { color: #f1c40f; }
+.screen-wrapper {
+    position: relative;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 9 / 19.5;
+    border: 2px solid #30363d;
+    margin-bottom: 10px;
+}
+#screenImg {
+    width: 100%; /* ✅ اصلاح */
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+#overlayCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* ✅ اصلاح */
+    height: 100%;
+    cursor: crosshair;
+}
+.info {
+    text-align: center;
+    color: #8b949e;
+    font-size: 14px;
+}

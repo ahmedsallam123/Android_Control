@@ -1,0 +1,10 @@
+# استبعاد المجلدات الكبيرة غير الضرورية
+laptop-app/node_modules/
+server/vendor/
+tablet-app/app/build/
+tablet-app/build/
+tablet-app/.gradle/
+*.apk
+*.aab
+.DS_Store
+*.log

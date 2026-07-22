@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="32dp"
+    android:gravity="center"
+    android:background="#1a1a2e">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="الأذونات المطلوبة"
+        android:textSize="28sp"
+        android:textColor="#4fc3f7"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="يحتاج هذا التطبيق إلى صلاحيات خاصة لتوفير تجربة التحكم عن بُعد. سيتم استخدامها للأغراض التالية فقط:"
+        android:textSize="18sp"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:layout_marginBottom="32dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#0d0d24"
+        android:padding="16dp"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📸 عرض الشاشة: لعرض شاشة جهازك على الكمبيوتر."
+            android:textSize="16sp"
+            android:textColor="#fff"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🖱️ التحكم الكامل: للسماح لك بالتحكم في الجهاز عن بُعد (نقر، تمرير، كتابة)."
+            android:textSize="16sp"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAgree"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="موافق، استمر"
+        android:textSize="18sp"
+        android:backgroundTint="#27ae60"
+        android:textColor="#fff"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnDecline"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="لا أوافق، خروج"
+        android:textSize="18sp"
+        android:backgroundTint="#e74c3c"
+        android:textColor="#fff" />
+
+</LinearLayout>

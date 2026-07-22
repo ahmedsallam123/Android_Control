@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Tablet Controller</string>
+    <string name="accessibility_desc">خدمة للتحكم في الجهاز عن بعد</string>
+</resources>

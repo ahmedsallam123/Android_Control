@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📱 Tablet</title>
+<style> 
+    * {
+    margin:0;
+    padding:0;
+    box-sizing:border-box; 
+    } 
+    body { 
+    font-family: 'Segoe UI', sans-serif;
+    background: #0a0a1a;
+    color: #fff;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    padding: 20px; 
+    } 
+    .container { 
+    background: #1a1a2e; 
+    padding: 40px; 
+    border-radius: 24px; 
+    text-align: center; 
+    max-width: 400px; 
+    width: 100 0 10px 40px rgba(0,0,0,0.6);
+    } 
+    h1 {
+    color: #4fc3f7; 
+    font-size: 28px; 
+    } 
+    .key-box { 
+    background: #0d0d24; 
+    padding: 15px; 
+    border-radius: 12px; 
+    font-size: 20px; 
+    margin: 20px 0; 
+    border: 1px solid #2a2a4a; 
+    word-break: break-all; 
+    color: #4fc3f7; 
+    font-weight: bold; 
+    } 
+    #status { 
+    font-size: 18px; 
+    padding: 12px;
+    border-radius: 10px; 
+    background: #0d0d24; 
+    margin-bottom: 20px; 
+    border: 1px solid #2a2a4a; 
+    } 
+    .btn { 
+    padding: 14px 35px; 
+    border: none; 
+    border-radius: 12px; 
+    font-size: 18px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    margin: 5px; 
+    }
+    .btn-accept { 
+    background: #27ae60; 
+    color: #fff; 
+    } 
+    .btn-reject { 
+    background: #e74c3c; 
+    color: #fff; 
+    } 
+    .btn-disconnect { 
+    background: #f39c12;
+    color: #fff; 
+    } 
+    .hidden {
+    display: none !important; 
+    } 
+    .status-waiting {
+    color: #f1c40f; 
+    } 
+    .status-connected {
+    color: #2ecc71; 
+    } 
+    .status-rejected {
+    color: #e74c3c; 
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>📱 التابلت</h1>
+    <div class="key-box">
+        🔑 <span id="keyDisplay">...</span>
+    </div>
+    <div id="status" class="status-waiting">⏳ في الانتظار</div>
+    <div id="btnGroup">
+        <button class="btn btn-accept" onclick="accept()">✅ Accept</button>
+        <button class="btn btn-reject" onclick="reject()">❌ Not Accept<button>
+    </div>
+    <div id="disconnectGroup" class="hidden">
+        <button class="btn btn-disconnect" onclick="disconnect()">⛔ Not Accept (قطع)</button>
+    </div>
+</div>
+<script> 
+document.getElementById('keyDisplay').innerText = AndroidBridge.getKey();
+    function accept() {
+        AndroidBridge.accept();
+        document.getElementById('status').innerText = '✅ جاري القبول...'; 
+        document.getElementById('status').className = 'status-connected'; 
+        } 
+    function reject() {
+        AndroidBridge.reject();
+        document.getElementById('status').innerText = '❌ مرفوض'; 
+        document.getElementById('status').className = 'status-rejected'; 
+        document.getElementById('btnGroup').classList.add('hidden'); 
+        } 
+    function disconnect() {
+        AndroidBridge.disconnect(); 
+        document.getElementById('status').innerText = '⛔ تم القطع'; 
+        document.getElementById('status').className = 'status-rejected'; 
+        document.getElementById('disconnectGroup').classList.add('hidden'); 
+        document.getElementById('btnGroup').classList.remove('hidden'); 
+        } 
+        window.onIncoming = function(fromKey) {
+            document.getElementById('status').innerText = '📨 طلب من: ' + fromKey;
+            document.getElementById('status').className = 'status-waiting';
+            document.getElementById('btnGroup').classList.remove('hidden');
+            document.getElementById('disconnectGroup').classList.add('hidden'); 
+            }; 
+        window.onConnected = function() {
+            document.getElementById('status').innerText = '✅ متصل'; 
+            document.getElementById('status').className = 'status-connected'; 
+            document.getElementById('btnGroup').classList.add('hidden'); 
+            document.getElementById('disconnectGroup').classList.remove('hidden'); 
+            }; 
+        window.onRejected = function() {
+            document.getElementById('status').innerText = '❌ مرفوض'; 
+            document.getElementById('status').className = 'status-rejected'; 
+            document.getElementById('btnGroup').classList.add('hidden'); }; 
+        window.onDisconnected = function() {
+            document.getElementById('status').innerText = '⛔ غير متصل'; 
+            document.getElementById('status').className = 'status-rejected'; 
+            document.getElementById('disconnectGroup').classList.add('hidden'); 
+            document.getElementById('btnGroup').classList.remove('hidden'); 
+            };
+</script>
+</body>
+</html> 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🖥️ التحكم بالتابلت</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🖥️ التحكم بالتابلت</h1>
+        <div class="toolbar"><input type="text" id="tabletKey" placeholder="أدخل مفتاح التابلت"><button
+                id="connectBtn">🔗 Connect</button><button id="disconnectBtn" style="display:none;">⛔ قطع</button><span
+                id="status" class="offline">غير متصل</span></div>
+        <div class="screen-wrapper"><img id="screenImg" src="" alt="شاشة التابلت"><canvas id="overlayCanvas"></canvas>
+        </div>
+        <div class="info">👆 اضغط على الشاشة للتحكم | 🖱️ استخدم عجلة الماوس للتمرير</div>
+    </div>
+    <script src="renderer.js"></script>
+</body>
+
+</html>
