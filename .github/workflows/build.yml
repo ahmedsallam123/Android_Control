@@ -19,12 +19,13 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Make gradlew executable
-        run: chmod +x tablet-app/gradlew
+      - name: Debug - list all files
+        run: find . -name "gradle-wrapper.properties"
 
       - name: Build APK
         run: |
           cd tablet-app
+          chmod +x gradlew
           ./gradlew assembleDebug
 
       - name: Upload APK
